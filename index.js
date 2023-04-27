@@ -14,13 +14,13 @@ const connectUrl = `mqtt://${host}:${port}`
 var LED_1, LED_2;
 
 const lineconfig = {
-    channelAccessToken: env.ACCESS_TOKEN,
-    channelSecret: env.SECRET_TOKEN,
+    channelAccessToken: process.env.ACCESS_TOKEN || env.ACCESS_TOKEN,
+    channelSecret: process.env.SECRET_TOKEN || env.SECRET_TOKEN,
 };
 
 let headers = {
     'Content-Type': 'application/json',
-    'Authorization': `Bearer ${env.ACCESS_TOKEN}`
+    'Authorization': `Bearer ${process.env.ACCESS_TOKEN}`
 }
 
 function getMessage() {
